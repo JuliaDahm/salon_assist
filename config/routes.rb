@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'employee/index'
+
+  get 'employee/new'
+
+  get 'employee/edit'
+
   devise_for :employees
   get 'home/index'
 
