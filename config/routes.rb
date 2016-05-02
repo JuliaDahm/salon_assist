@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'index/show'
+
+  get 'index/new'
+
+  get 'index/edit'
+
+  get 'salons/show'
+
+  get 'salons/new'
+
+  get 'salons/edit'
+
+  get 'services/index'
+
+  get 'services/new'
+
+  get 'services/edit'
+
   get 'employee/index'
 
   get 'employee/new'
@@ -11,8 +29,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :employees do 
-    resources :openings
     resources :salons do 
+      resources :openings
       resources :products 
       resources :services 
     end 

@@ -3,7 +3,7 @@ class CreateOpenings < ActiveRecord::Migration
     create_table :openings do |t|
       t.date :opening_date
       t.string :time_and_length
-      t.belongs_to :employee 
+      t.belongs_to :salon 
       t.timestamps null: false
     end
   end

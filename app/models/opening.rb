@@ -1,3 +1,3 @@
 class Opening < ActiveRecord::Base
-  belongs_to :employee
+  belongs_to :salon
 end
