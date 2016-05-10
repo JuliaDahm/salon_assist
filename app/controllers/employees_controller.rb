@@ -1,5 +1,5 @@
-class EmployeeController < ApplicationController
-  before_action :authenticate_user!
+class EmployeesController < ApplicationController
+  before_action :authenticate_employee!
   before_action :employee, except: [:index, :new, :create]
 
   def index
@@ -15,21 +15,22 @@ class EmployeeController < ApplicationController
 
   def create
     @employee = Employee.create(employee_params)
-    binding.pry
-    if @employee.save 
-      @employee.save_attribute :admin, true ?
-    else 
-      render :new 
+    # if @employee.save 
+    #   @employee.update_attribute :admin, true ?
+    # else 
+    #   render :new 
+    # end 
   end
 
   def edit
   end
  
   def update 
-    if @employee.update(employee_params)
-      redirect_to employees_path 
-    else
-      render :edit
+    # if @employee.update(employee_params)
+    #   redirect_to employees_path 
+    # else
+    #   render :edit
+    # end 
   end
 
   def destroy
@@ -46,7 +47,7 @@ class EmployeeController < ApplicationController
   end 
 
   def employee
-    @employee = current_employee.find(params[:id])
+    @employee = current_employee
   end 
 
 end
