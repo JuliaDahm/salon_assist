@@ -49,12 +49,23 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(employee)
+    new_employee_salon_path(current_employee[:id])
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private 
+
+  def sign_up_params
+    params.require(:employee).permit(:salon_name, :email, :password, :password_confirmation)
+  end
+  
+  def account_update_params
+    params.require(:employee).permit(:salon_name, :email, :password, :password_confirmation)
+  end
+
 end

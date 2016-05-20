@@ -6,8 +6,7 @@ class EmployeesController < ApplicationController
     @employees = Employee.all 
   end
 
-  def show
-    
+  def show 
   end
 
   def new
@@ -17,7 +16,8 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.create(employee_params)
     # if @employee.save 
-    #   @employee.update_attribute :admin, true ?
+    #   # @employee.update_attribute :admin, true ?
+    #   redirect_to new_employee_salon_path(current_employee[:id])
     # else 
     #   render :new 
     # end 
@@ -48,7 +48,7 @@ class EmployeesController < ApplicationController
   end 
 
   def employee
-    @employee = current_employee
+    @employee = Employee.find(params[:employee_id])
   end 
 
 end

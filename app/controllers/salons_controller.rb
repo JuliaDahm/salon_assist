@@ -1,8 +1,11 @@
 class SalonsController < ApplicationController
-  before_action :employee, only: [:new, :create, :destroy]
+  before_action :employee, only: [:new, :create, :show, :destroy]
+
+  def show
+  end 
 
   def new
-    @salon = Salon.new 
+    @salon = Salon.new
   end
 
   def create 

@@ -1,2 +1,16 @@
-<h1>Salons#new</h1>
-<p>Find me in app/views/salons/new.html.erb</p>
+<div class='center container'>
+  <h4>Welcome!</h4>
+  <h6>Let's get started..</h6>
+  <br />
+
+  
+  <%= form_for [@employee, @salon] do |f| %>
+
+    <%= f.label :salon_name %>
+    <%= f.text_field :salon_name %>
+  
+    <%= f.submit %>
+
+  <% end %>
+
+</div>
